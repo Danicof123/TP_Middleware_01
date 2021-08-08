@@ -14,7 +14,7 @@ const aumentar = req => {
 const contar = (req, res, next) => {
     if (req._parsedUrl.pathname == '/admin') {
         const name = req.query.user;
-        (leerAdmin.includes(name.toLowerCase()))
+        (name && leerAdmin.includes(name.toLowerCase()))
             ? createLog(`\n${name.replace(name[0], name[0].toUpperCase())} Ingreso a ${req.url}\n`)
             : createLog(`\nUn usuario anónimo intento ingresar a ${req.url}\n`)
     }
